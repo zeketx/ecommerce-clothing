@@ -1,13 +1,15 @@
 body{
   padding: 1em;
 }
-.App {
-  
-}
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333333;
 }
 
 @media (prefers-reduced-motion: no-preference) {
