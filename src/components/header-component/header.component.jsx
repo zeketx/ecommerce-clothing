@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { auth } from '../../firebase/firebase.utils';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import './header.styles.scss';
 
-const Header = () => (
+// pass in currentUser from app.js state
+const Header = ( { currentUser } ) => (
     <div className='header'>
         <Link to='/' className='logo-container'>
             <Logo className='logo' />
@@ -15,6 +17,15 @@ const Header = () => (
             <Link className='option' to='/shop'>
                 CONTACT
             </Link>
+            {
+                currentUser ?  // if user is signed 
+
+                <div className='option' onClick={ () => auth.signOut() } > SIGN OUT</div> 
+                
+                : // else if user signed out
+
+                <Link className='option' to='/signin' > SIGN IN </Link>
+            }
         </div>
     </div>
 )
